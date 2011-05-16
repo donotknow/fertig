@@ -1,18 +1,15 @@
 <?php
 /**
  * @package WordPress
- * @subpackage themename
+ * @subpackage fertig
  */
 
 get_header(); ?>
 
-		<div id="primary">
-			<div id="content">
+		<div id="content">
 
-				<?php get_template_part( 'loop', 'index' ); ?>
+			<?php get_template_part( 'loop', 'index' ); ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+		</div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

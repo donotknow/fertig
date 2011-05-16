@@ -1,14 +1,14 @@
 <?php
 /**
  * @package WordPress
- * @subpackage themename
+ * @subpackage fertig
  */
 
 /**
  * Make theme available for translation
  * Translations can be filed in the /languages/ directory
  */
-load_theme_textdomain( 'themename', TEMPLATEPATH . '/languages' );
+load_theme_textdomain( 'fertig', TEMPLATEPATH . '/languages' );
 
 $locale = get_locale();
 $locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -74,9 +74,7 @@ add_action('admin_init','customize_meta_boxes');
  * This theme uses wp_nav_menus() for the header menu, utility menu and footer menu.
  */
 register_nav_menus( array(
-	'primary' => __( 'Primary Menu', 'themename' ),
-	'footer' => __( 'Footer Menu', 'themename' ),
-	'utility' => __( 'Utility Menu', 'themename' )
+	'primary' => __( 'Primary Menu', 'fertig' )
 ) );
 
 /** 
@@ -108,17 +106,35 @@ add_editor_style("/css/layout-style.css");
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function handcraftedwp_widgets_init() {
-	register_sidebar( array (
-		'name' => __( 'Sidebar', 'themename' ),
-		'id' => 'sidebar',
+function fertig_widgets_init() {
+	$widgetOpitons = array (
 		'before_widget' => '<aside id="%1$s" class="widget %2$s" role="complementary">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h4 class="widget-title">',
-		'after_title' => '</h4>',
-	) );
+		'after_title' => '</h4>'
+	);
+
+	register_sidebar( array_merge ( array (
+		'name' => __( 'Header', 'fertig' ),
+		'id' => 'header'
+	), $widgetOpitons ) );
+
+	register_sidebar( array_merge ( array (
+		'name' => __( 'Footer 1', 'fertig' ),
+		'id' => 'footer1'
+	), $widgetOpitons ) );
+
+	register_sidebar( array_merge ( array (
+		'name' => __( 'Footer 2', 'fertig' ),
+		'id' => 'footer2'
+	), $widgetOpitons ) );
+
+	register_sidebar( array_merge ( array (
+		'name' => __( 'Footer 3', 'fertig' ),
+		'id' => 'footer3'
+	), $widgetOpitons ) );
 }
-add_action( 'init', 'handcraftedwp_widgets_init' );
+add_action( 'init', 'fertig_widgets_init' );
 
 /*
  * Remove senseless dashboard widgets for non-admins. (Un)Comment or delete as you wish.
@@ -139,7 +155,7 @@ function remove_dashboard_widgets() {
 /**
  *	Hide Menu Items
  */
-function themename_configure_menu_page(){
+function fertig_configure_menu_page(){
 	
 	//remove_menu_page("link-manager.php"); //Hide Links
 	//remove_menu_page("edit-comments.php"); //Hide Comments
@@ -149,7 +165,7 @@ function themename_configure_menu_page(){
 
 if (!current_user_can('manage_options')) {
 	add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
-	add_action("admin_menu","themename_configure_menu_page"); //While we're add it, let's configure the menu options as well
+	add_action("admin_menu","fertig_configure_menu_page"); //While we're add it, let's configure the menu options as well
 } 
 
 

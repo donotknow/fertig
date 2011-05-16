@@ -1,18 +1,58 @@
 <?php
 /**
  * @package WordPress
- * @subpackage themename
+ * @subpackage fertig
  */
 ?>
 
 	</div><!-- #main  -->
 
-	<footer id="colophon" role="contentinfo">
-			<div id="site-generator">
-				<small>&copy Copyright <?php echo date('Y') . " " . esc_attr( get_bloginfo( 'name', 'display' ) ); ?> <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'themename' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s.', 'themename' ), 'WordPress' ); ?></a></small>
-				<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-			</div>
+	<div id="footer" class="widget-area selfclear"><div class="padder">
+
+		<div id="footer1" class="footer-column">
+		<?php if ( ! dynamic_sidebar( 'footer1' ) ) : ?>
+			<aside id="categories" class="widget" role="complementary">
+				<h2 class="widget-title"><?php _e( 'Categories', 'fertig' ); ?></h2>
+				<ul>
+					<?php wp_list_categories( array( 'title_li' => '' ) ); ?> 
+				</ul>
+			</aside>
+		<?php endif; // end sidebar widget area ?>
+		</div>
+
+		<div id="footer2" class="footer-column">
+		<?php if ( ! dynamic_sidebar( 'footer2' ) ) : ?>
+			<aside id="archives" class="widget" role="complementary">
+				<h2 class="widget-title"><?php _e( 'Archives', 'fertig' ); ?></h2>
+				<ul>
+					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+				</ul>
+			</aside>
+		<?php endif; // end sidebar widget area ?>
+		</div>
+
+		<div id="footer3" class="footer-column">
+		<?php if ( ! dynamic_sidebar( 'footer3' ) ) : ?>
+			<aside id="meta" class="widget" role="complementary">
+				<h2 class="widget-title"><?php _e( 'Meta', 'fertig' ); ?></h2>
+				<ul>
+					<?php wp_register(); ?>
+					<aside role="complementary"><?php wp_loginout(); ?></aside>
+					<?php wp_meta(); ?>
+				</ul>
+			</aside>
+		<?php endif; // end sidebar widget area ?>
+		</div>
+
+	</div></div><!-- #footer .widget-area -->
+	
+	<footer id="colophon" role="contentinfo" class="selfclear">
+		<div id="site-generator">
+			<p class="generator"><?php _e( 'Proudly powered by ', 'fertig' ); ?><a rel="generator" href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'fertig' ); ?>"><?php _e( 'WordPress', 'fertig' ); ?></a>.</p>
+			<p class="license">Content licensed under <span class="cc-icons">c</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share Alike</a>, unless otherwise noted.</p>
+		</div>
 	</footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 <!-- Grab Google CDN's jQuery. Fall back to local if necessary -->

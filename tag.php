@@ -3,28 +3,25 @@
  * The template used to display Tag Archive pages
  *
  * @package WordPress
- * @subpackage themename
+ * @subpackage fertig
  */
 
 get_header(); ?>
 
-		<section id="primary" role="region">
-			<div id="content">
+		<section id="content" role="region">
 
-				<?php the_post(); ?>
+			<?php the_post(); ?>
 
-				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Tag Archives: %s', 'themename' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-					?></h1>
-				</header>
+			<header class="page-header">
+				<h1 class="page-title"><?php
+					printf( __( 'Tag Archives: %s', 'fertig' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+				?></h1>
+			</header>
 
-				<?php rewind_posts(); ?>
+			<?php rewind_posts(); ?>
 
-				<?php get_template_part( 'loop', 'tag' ); ?>
+			<?php get_template_part( 'loop', 'tag' ); ?>
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		</section><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

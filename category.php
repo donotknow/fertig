@@ -1,26 +1,23 @@
 <?php
 /**
  * @package WordPress
- * @subpackage themename
+ * @subpackage fertig
  */
 
 get_header(); ?>
 
-		<section id="primary" role="region">
-			<div id="content">
+		<section id="content" role="region">
 
-				<header class="page-header">
-					<h1 class="page-title"><?php
-						printf( __( 'Category Archives: %s', 'themename' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-					?></h1>
+			<header class="page-header">
+				<h1 class="page-title"><?php
+					printf( __( 'Category Archives: %s', 'fertig' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+				?></h1>
 
-					<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
-				</header>
+				<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
+			</header>
 
-				<?php get_template_part( 'loop', 'category' ); ?>
+			<?php get_template_part( 'loop', 'category' ); ?>
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		</section><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
