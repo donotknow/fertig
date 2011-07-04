@@ -186,11 +186,23 @@ a.comment-reply-link:hover, a.comment-reply-link:focus { color:#d3975d; }
 #content .entry-meta ul:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
 #content .entry-meta ul > li { display:inline; float:left; margin:0; width:28%; min-height:3em; padding:1em 2.5% .3em; border-right:1px solid #efefef; }
 #content .entry-meta ul > li:last-child { border:none; }
-#content .entry-meta .comment { display:block; float:none; width:100%; min-height:0; padding:.5em 0; border:none; background:#efefef; }
-#content .entry-meta .comment a { padding:0 2.5%; }
+#content .entry-meta .bar { display:block; float:none; width:100%; min-height:0; padding:.5em 0; border:none; background:#efefef; }
+#content .entry-meta .bar div { float:left; padding:0 2.5%; }
+#content .entry-meta .bar div:last-child { float:right; }
+#content .entry-meta .bar h6 { display:inline-block; padding:0 .25em 0 0; }
 #content .entry-meta .author-date h6 { clear:left; float:left; width:1.5em; }
 #content .entry-meta .author-date a,
 #content .entry-meta .author-date span { float:left; }
+
+#content .hrecipe .entry-meta ul > li:nth-child(1n) { width:15%; }
+#content .hrecipe .entry-meta ul > li:nth-child(2n) { width:19%; }
+#content .hrecipe .entry-meta ul > li:nth-child(3n) { width:21%; }
+#content .hrecipe .entry-meta ul > li:nth-child(4n) { width:25%; }
+
+#content .entry-meta .review { position:absolute; float:none !important; top:-.2em; right:-1em; width:1em; color:#D3975D; font-size:3.4em; line-height:0; text-indent:-9999px; }
+#content .entry-meta .review .stars { display:block; line-height:.9; text-indent:0; text-shadow:rgba(0,0,0,.2) 0 2px 3px;
+	-webkit-text-stroke: 2px #472300;
+}
 
 
 /* alignment */
