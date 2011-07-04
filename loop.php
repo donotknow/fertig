@@ -36,14 +36,14 @@
 		<?php endif; ?>
 
 		<footer class="entry-meta">
-			<div class="comment">
+			<?php if ( have_comments() || $post->comment_status == 'open' ) : ?><div class="bar">
 				<?php comments_popup_link( __( 'Leave a comment', 'fertig' ), __( '1 Comment', 'fertig' ), __( '% Comments', 'fertig' ) ); ?>
-			</div>
+			</div><?php endif; ?>
 			<ul>
-				<li>
+				<?php if (the_category()) : ?><li>
 					<h6><?php _e( 'In', 'fertig' ); ?></h6>
 					<?php the_category( ', ' ); ?>
-				</li>
+				</li><?php endif; ?>
 				<?php the_tags( '<li><h6>' . __( 'Tagged', 'fertig' ) . '</h6>', ', ', ' </li>' ); ?>
 				<li class="author-date">
 					<h6><?php _e( 'By', 'fertig' ); ?></h6>
