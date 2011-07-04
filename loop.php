@@ -40,7 +40,7 @@
 				<?php comments_popup_link( __( 'Leave a comment', 'fertig' ), __( '1 Comment', 'fertig' ), __( '% Comments', 'fertig' ) ); ?>
 			</div><?php endif; ?>
 			<ul>
-				<?php if (the_category()) : ?><li>
+				<?php if (get_the_category()) : ?><li>
 					<h6><?php _e( 'In', 'fertig' ); ?></h6>
 					<?php the_category( ', ' ); ?>
 				</li><?php endif; ?>
