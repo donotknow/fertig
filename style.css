@@ -135,22 +135,6 @@ button { width:auto; overflow:visible; }
 .selfclear:after { clear:both; }
 .selfclear { zoom:1; }
 
-/* print
-------------------------*/
-@media print {
-  * { background:transparent !important; color:#444 !important; text-shadow:none !important; }
-  a, a:visited { color:#444 !important; text-decoration:underline; }
-  a:after { content:" (" attr(href) ")"; }
-  abbr:after { content:" (" attr(title) ")"; }
-  .ir a:after { content:""; }  /* Don't show links for images */
-  pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
-  thead { display:table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
-  tr, img { page-break-inside:avoid; }
-  @page { margin:0.5cm; }
-  p, h2, h3 { orphans:3; widows:3; }
-  h2, h3{ page-break-after:avoid; }
-}
-
 /* layout
 ------------------------*/
 #page { display:block; }
@@ -362,3 +346,42 @@ article.comment .reply { position:relative; font-size:1.3em; z-index:2; }
          url('fonts/cc-icons.svg#CCIcons') format('svg');
 }
 .cc-icons { font-family:'CCIcons'; position:relative; top:.1em; padding:0 .25em; font-size:1.2em; line-height:1; }
+
+
+
+/* print
+------------------------*/
+@media print {
+	* { background:transparent !important; color:#000 !important; text-shadow:none !important; }
+	a, a:visited { color:#000 !important; text-decoration:underline; }
+	a:after { content:' (' attr(href) ')'; }
+	abbr:after { content:' (' attr(title) ')'; }
+	.ir a:after { content:''; }  /* Don't show links for images */
+	pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
+	thead { display:table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+	tr, img { page-break-inside:avoid; }
+	p, h2, h3 { orphans:3; widows:3; }
+	h2, h3 { page-break-after:avoid; }
+
+	/* header */
+	#header, #access, #site-description, #content .edit-link, .entry-meta, #comments, #footer, #colophon { display:none; }
+	#branding, #content { width:100%; margin:0; padding:0 1%;
+		-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
+	}
+	#site-title,
+	#site-title * { float:none; margin:0 !important; padding:0 !important; width:auto !important; height:auto !important; line-height:.8em !important; text-align:left !important; text-decoration:none; border:none !important;
+		-webkit-border-radius:0; -moz-border-radius:0; border-radius:0;
+		-webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;
+	}
+	#site-title { margin-bottom:40px !important; font-size:1em !important; border-bottom:1px dashed #999 !important; }
+	#site-title a:after, #content .entry-title a:after { content:''; }
+	#content article { border:none; border-bottom:1px solid #999; padding:0 10px 55px;
+		-webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;
+	}
+	#content article:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+	#content article:last-of-type { padding:0; border:none; }
+	#content .entry-title { border:none; }
+	#content .entry-title a { text-decoration:none; }
+	#content .recipe .entry-content .ingredients { float:left; width:37%; margin-right:3%; }
+	#content .recipe .entry-content .method { float:right; width:60%; }
+}
