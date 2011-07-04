@@ -32,15 +32,10 @@ get_header(); ?>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-meta">
-						<div class="comment">
-							<?php
-								printf( __( '<a href="%1$s" title="Permalink to %2$s" rel="bookmark">%2$s</a> § ', 'fertig' ),
-									get_permalink(),
-									the_title_attribute( 'echo=0' )
-								);
-								comments_popup_link( __( 'Leave a comment', 'fertig' ), __( '1 Comment', 'fertig' ), __( '% Comments', 'fertig' ) );
-							?>
-						</div>
+						<?php if ( have_comments() || $post->comment_status == 'open' ) : ?><div class="bar">
+							<?php comments_popup_link( __( 'Leave a comment', 'fertig' ), __( '1 Comment', 'fertig' ), __( '% Comments', 'fertig' ) ); ?>
+						</div><?php endif; ?>
+
 						<ul>
 							<li>
 								<h6><?php _e( 'In', 'fertig' ); ?></h6>
