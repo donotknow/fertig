@@ -56,8 +56,9 @@
 </div><!-- #page -->
 
 <!-- Grab Google CDN's jQuery. Fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="//code.jquery.com/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
 
 <?php wp_footer(); ?>
 
