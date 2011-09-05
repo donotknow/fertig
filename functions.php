@@ -234,3 +234,22 @@ function cpt_icons() {
         }
     </style>
 <?php }*/ ?>
+
+
+<?php
+// Moxie Specific
+if ( ! function_exists( 'my_formatTinyMCE' ) ) :
+function my_formatTinyMCE($init) {
+  // enter style and class name, elements highlighted with no wrapper will be wrapped in span tage
+  // more info on http://tinyurl.com/3cz27fq and http://tinyurl.com/3pg9smc
+  $style_formats = 'Pull Quote=pullquote, Hide Test=hide';
+  array_unshift($init, 'styleselect');
+    
+  $init['theme_advanced_buttons2_add'] = 'styleselect';
+  $init['theme_advanced_styles'] = $style_formats ;  
+  return $init;    
+}    
+add_filter('tiny_mce_before_init', 'my_formatTinyMCE' );
+endif; 
+
+?>
