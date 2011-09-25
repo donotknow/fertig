@@ -120,18 +120,8 @@ function fertig_widgets_init() {
 	), $widgetOpitons ) );
 
 	register_sidebar( array_merge ( array (
-		'name' => __( 'Footer 1', 'fertig' ),
-		'id' => 'footer1'
-	), $widgetOpitons ) );
-
-	register_sidebar( array_merge ( array (
-		'name' => __( 'Footer 2', 'fertig' ),
-		'id' => 'footer2'
-	), $widgetOpitons ) );
-
-	register_sidebar( array_merge ( array (
-		'name' => __( 'Footer 3', 'fertig' ),
-		'id' => 'footer3'
+		'name' => __( 'Footer', 'fertig' ),
+		'id' => 'footer'
 	), $widgetOpitons ) );
 }
 add_action( 'init', 'fertig_widgets_init' );
@@ -155,14 +145,14 @@ function remove_dashboard_widgets() {
 /**
  *	Hide Menu Items in Admin
  */
-function fertig_configure_dashboard_menu(){
+function fertig_configure_dashboard_menu() {
 	global $menu,$submenu;
 
 	global $current_user;
 	get_currentuserinfo();
 
 		// $menu and $submenu will return all menu and submenu list in admin panel
-		
+
 		// $menu[2] = ""; // Dashboard
 		// $menu[5] = ""; // Posts
 		// $menu[15] = ""; // Links
@@ -178,7 +168,7 @@ function fertig_configure_dashboard_menu(){
 // Don't forget to comment out the admin check to see that changes :)
 if (!current_user_can('manage_options')) {
 	add_action('wp_dashboard_setup', 'remove_dashboard_widgets'); // Add action to hide dashboard widgets
-	add_action('admin_head', 'themename_configure_dashboard_menu'); // Add action to hide admin menu items
+	add_action('admin_head', 'fertig_configure_dashboard_menu'); // Add action to hide admin menu items
 }
 
 
@@ -207,7 +197,7 @@ function create_boilertemplate_cpt()
   $labels = array(
     'name' => _x('HandcraftedWPTemplate CPT', 'post type general name'),
     'singular_name' => _x('HandcraftedWPTemplate CPT Item', 'post type singular name'),
-    'add_new' => _x('Add New', 'handcraftedwptemplate_robot'),
+    'add_new' => _x('Add New', 'fertigtemplate_robot'),
     'add_new_item' => __('Add New Item'),
     'edit_item' => __('Edit Item'),
     'new_item' => __('New Item'),
@@ -228,7 +218,7 @@ function create_boilertemplate_cpt()
     'menu_position' => 20,
     'supports' => array('title','editor')
   ); 
-  register_post_type('handcraftedwptemplate_robot',$args);
+  register_post_type('fertigtemplate_robot',$args);
 }*/
 /*
  * This is for a custom icon with a colored hover state for your custom post types. You can download the custom icons here 
@@ -238,55 +228,11 @@ function create_boilertemplate_cpt()
 function cpt_icons() {
     ?>
     <style type="text/css" media="screen">
-        #menu-posts-handcraftedwptemplaterobot .wp-menu-image {
+        #menu-posts-fertigtemplaterobot .wp-menu-image {
             background: url(<?php bloginfo('template_url') ?>/images/robot.png) no-repeat 6px -17px !important;
         }
-		#menu-posts-handcraftedwptemplaterobot:hover .wp-menu-image, #menu-posts-handcraftedwptemplaterobot.wp-has-current-submenu .wp-menu-image {
+		#menu-posts-fertigtemplaterobot:hover .wp-menu-image, #menu-posts-fertigtemplaterobot.wp-has-current-submenu .wp-menu-image {
             background-position:6px 7px!important;
         }
     </style>
 <?php }*/ ?>
-
-
-<?php
-// Moxie Specific
-if ( ! function_exists( 'my_formatTinyMCE' ) ) :
-function my_formatTinyMCE($init) {
-  // enter style and class name, elements highlighted with no wrapper will be wrapped in span tage
-  // more info on http://tinyurl.com/3cz27fq and http://tinyurl.com/3pg9smc
-  $style_formats = 'Pull Quote=pullquote, Hide Test=hide';
-  array_unshift($init, 'styleselect');
-    
-  $init['theme_advanced_buttons2_add'] = 'styleselect';
-  $init['theme_advanced_styles'] = $style_formats ;  
-  return $init;    
-}    
-add_filter('tiny_mce_before_init', 'my_formatTinyMCE' );
-endif; 
-
-// Add custom logo support 
-define('NO_HEADER_TEXT', true);
-define('HEADER_TEXTCOLOR', 'ffffff');
-define('HEADER_IMAGE', '%s/images/default_logo.png'); // %s is the template dir uri
-define('HEADER_IMAGE_WIDTH', 116); // use width and height appropriate for your theme
-define('HEADER_IMAGE_HEIGHT', 194); 
-
-// gets included in the site header
-// gets included in the site header
-function header_uri() {  
-  echo header_image();
-}
-
-// gets included in the admin header
-function admin_header_style() {
-    ?><style type="text/css">
-        #headimg {
-            width: <?php echo HEADER_IMAGE_WIDTH; ?>px;
-            height: <?php echo HEADER_IMAGE_HEIGHT; ?>px;
-            background: no-repeat;
-        }
-    </style><?php
-}
-add_custom_image_header('header_uri', 'admin_header_style');
-
-?>

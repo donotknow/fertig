@@ -7,32 +7,23 @@
 
 	</div><!-- #main  -->
 
-	<div id="footer" class="widget-area selfclear"><div class="padder">
+	<div id="footer" class="widget-area selfclear">
 
-		<div id="footer1" class="footer-column">
-		<?php if ( ! dynamic_sidebar( 'footer1' ) ) : ?>
+		<?php if ( ! dynamic_sidebar( 'footer' ) ) : ?>
 			<aside id="categories" class="widget" role="complementary">
 				<h2 class="widget-title"><?php _e( 'Categories', 'fertig' ); ?></h2>
 				<ul>
 					<?php wp_list_categories( array( 'title_li' => '' ) ); ?> 
 				</ul>
 			</aside>
-		<?php endif; // end sidebar widget area ?>
-		</div>
 
-		<div id="footer2" class="footer-column">
-		<?php if ( ! dynamic_sidebar( 'footer2' ) ) : ?>
 			<aside id="archives" class="widget" role="complementary">
 				<h2 class="widget-title"><?php _e( 'Archives', 'fertig' ); ?></h2>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
-		<?php endif; // end sidebar widget area ?>
-		</div>
 
-		<div id="footer3" class="footer-column">
-		<?php if ( ! dynamic_sidebar( 'footer3' ) ) : ?>
 			<aside id="meta" class="widget" role="complementary">
 				<h2 class="widget-title"><?php _e( 'Meta', 'fertig' ); ?></h2>
 				<ul>
@@ -42,10 +33,9 @@
 				</ul>
 			</aside>
 		<?php endif; // end sidebar widget area ?>
-		</div>
 
-	</div></div><!-- #footer .widget-area -->
-	
+	</div><!-- #footer .widget-area -->
+
 	<footer id="colophon" role="contentinfo" class="selfclear">
 		<div id="site-generator">
 			<p class="generator"><?php _e( 'Proudly powered by ', 'fertig' ); ?><a rel="generator" href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'fertig' ); ?>"><?php _e( 'WordPress', 'fertig' ); ?></a>.</p>
