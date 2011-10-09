@@ -107,22 +107,24 @@ add_editor_style("/css/layout-style.css");
  * Register widgetized area and update sidebar with default widgets
  */
 function fertig_widgets_init() {
-	$widgetOpitons = array (
+	register_sidebar(array (
+		'name' => __( 'Header', 'fertig' ),
+		'id' => 'header-widgets',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s" role="complementary">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>'
-	);
+	));
 
-	register_sidebar( array_merge ( array (
-		'name' => __( 'Header', 'fertig' ),
-		'id' => 'header'
-	), $widgetOpitons ) );
-
-	register_sidebar( array_merge ( array (
+	register_sidebar(array(
 		'name' => __( 'Footer', 'fertig' ),
-		'id' => 'footer'
-	), $widgetOpitons ) );
+		'id' => 'footer-widgets',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s" role="complementary">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>'
+	));
+
 }
 add_action( 'init', 'fertig_widgets_init' );
 

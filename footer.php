@@ -9,7 +9,7 @@
 
 	<div id="footer" class="widget-area selfclear">
 
-		<?php if ( ! dynamic_sidebar( 'footer' ) ) : ?>
+		<?php if (!dynamic_sidebar( 'footer-widgets' )) : ?>
 			<aside id="categories" class="widget" role="complementary">
 				<h2 class="widget-title"><?php _e( 'Categories', 'fertig' ); ?></h2>
 				<ul>

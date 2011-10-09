@@ -61,7 +61,7 @@
 	<div id="page" class="hfeed">
 
 		<div id="header" class="widget-area selfclear">
-			<?php if ( ! dynamic_sidebar( 'header' ) ) : ?>
+			<?php if (!dynamic_sidebar( 'header-widgets' )) : ?>
 
 				<nav class="widget categories" role="complementary"><ul>
 					<?php wp_list_categories( array( 'number' => '5', 'title_li' => '' ) ); ?> 
