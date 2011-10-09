@@ -10,15 +10,6 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-				<?php echo posts_nav_link(); ?>
-				<?php if (posts_nav_link() ) : ?>
-					<nav id="nav-above" role="article">
-						<h1 class="section-heading"><?php _e( 'Post navigation', 'fertig' ); ?></h1>
-						<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'fertig' ) . '</span> %title' ); ?></div>
-						<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'fertig' ) . '</span>' ); ?></div>
-					</nav><!-- #nav-above -->
-				<?php endif; ?>
-
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="article">
 					<?php edit_post_link( __( 'Edit', 'fertig' ), '<span class="edit-link">', '</span>' ); ?>
 
@@ -66,11 +57,10 @@ get_header(); ?>
 				</article><!-- #post-<?php the_ID(); ?> -->
 
 				<?php if (posts_nav_link () ) : ?>
-					<nav id="nav-below" role="article">
-						<h1 class="section-heading"><?php _e( 'Post navigation', 'fertig' ); ?></h1>
-						<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'fertig' ) . '</span> %title' ); ?></div>
-						<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'fertig' ) . '</span>' ); ?></div>
-					</nav><!-- #nav-below -->
+					<nav id="post-nav" role="article"><ul>
+						<li class="first"><?php previous_post_link( '%link', '' . _x( '', 'Previous post link', 'fertig' ) . '◀' ); ?></li>
+						<li class="last"><?php next_post_link( '%link', '▶' . _x( '', 'Next post link', 'fertig' ) . '' ); ?></li>
+					</ul></nav><!-- #post-nav -->
 				<?php endif; ?>
 
 				<?php comments_template( '', true ); ?>

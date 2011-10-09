@@ -84,14 +84,6 @@ endif; // ends check for fertig_comment()
 				?>
 			</h2>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-above" role="article">
-			<h1 class="section-heading"><?php _e( 'Comment navigation', 'fertig' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'fertig' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'fertig' ) ); ?></div>
-		</nav>
-		<?php endif; // check for comment navigation ?>
-
 		<ol class="commentlist">
 			<?php wp_list_comments( array( 'callback' => 'fertig_comment' ) ); ?>
 		</ol>
